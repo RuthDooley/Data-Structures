@@ -2,37 +2,38 @@ import java.util.*;
 
 public class main {
     public static void main(String[] args) {
-        int[] my_array = {25, 14, 56, 15, 36, 56, 77, 18, 29, 49};
-        System.out.println(average(my_array));
-
-        int [] arr = {90, 77, 67, 55, 75, 57, 98, 17, 50, 23, 30, 100, 34, 75, 28, 43, 14, 52, 64, 13};
-        int x = 64;
-        int indexOf = getIndexOf(arr, x);
-        System.out.println("indexof"+ x +":"+ indexOf);
-
-        String[] arr1 = {"nail","cure","vagabond","riddle","act","songs","zipper","excite","magical","eager","blood","coast","guess","selfish","milky","ticket","authority"};
-        String[] arr2 = {"cure","wicked","guess","vagabond","riddle","act","excite","songs","troubled","eager","blood","coast","waiting","selfish","milky","ticket","authority","nail"};
-        String[] common = getCommonElements(arr1, arr2);
-        System.out.println(Arrays.asList(common));
-
-        int m = 5, n = 5;
-        int mat1[][] = new int[m][n];
-        int mat2[][] = new int[m][n];
+//        int[] my_array = {25, 14, 56, 15, 36, 56, 77, 18, 29, 49};
+//        System.out.println(average(my_array));
+//
+//        int [] arr = {90, 77, 67, 55, 75, 57, 98, 17, 50, 23, 30, 100, 34, 75, 28, 43, 14, 52, 64, 13};
+//        int x = 64;
+//        int indexOf = getIndexOf(arr, x);
+//        System.out.println("indexof"+ x +":"+ indexOf);
+//
+//        String[] arr1 = {"nail","cure","vagabond","riddle","act","songs","zipper","excite","magical","eager","blood","coast","guess","selfish","milky","ticket","authority"};
+//        String[] arr2 = {"cure","wicked","guess","vagabond","riddle","act","excite","songs","troubled","eager","blood","coast","waiting","selfish","milky","ticket","authority","nail"};
+//        String[] common = getCommonElements(arr1, arr2);
+//        System.out.println(Arrays.asList(common));
+//
+//        int m = 5, n = 5;
+//        int mat1[][] = new int[m][n];
+//        int mat2[][] = new int[m][n];
         Random rnd = new Random();
+//
+//        for (int i = 0; i < mat1[0].length; i++) {
+//            for (int j = 0; j < mat2[0].length; j++){
+//                mat1[i][j] = rnd.nextInt(20);
+//                mat2[i][j] = rnd.nextInt(20);
+//            }
+//        }
+//
+//        System.out.println(Arrays.deepToString(mat1).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
+//        System.out.println(Arrays.deepToString(mat2).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
+//
+//        int sum[][] = addMatrices(mat1, mat2);
+//        System.out.println(Arrays.deepToString(sum).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
 
-        for (int i = 0; i < mat1[0].length; i++) {
-            for (int j = 0; j < mat2[0].length; j++){
-                mat1[i][j] = rnd.nextInt(20);
-                mat2[i][j] = rnd.nextInt(20);
-            }
-        }
-
-        System.out.println(Arrays.deepToString(mat1).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
-        System.out.println(Arrays.deepToString(mat2).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
-
-        int sum[][] = addMatrices(mat1, mat2);
-        System.out.println(Arrays.deepToString(sum).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
-
+        //
         int r = 5, s = 5;
         int m1[][] = new int[r][s];
         int m2[][] = new int[r][s];
@@ -47,18 +48,21 @@ public class main {
         System.out.println(Arrays.deepToString(m1).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
         System.out.println(Arrays.deepToString(m2).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
 
-        int prod[][] = matProd(mat1, mat2);
-        System.out.println(Arrays.deepToString(sum).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
+        int prod[][] = matProd(m1, m2);
+        //System.out.println(Arrays.deepToString(sum).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
     }
 
     public static int[][] matProd (int [][] m1, int [][] m2){
         int [][] prod = new int [m1[0].length][m1[0].length];
         int total;
         for (int i = 0; i < m1[0].length; i ++){
+            total = 0;
             for (int j = 0; j < m1[0].length; j++){
-                total = 0;
+
+
 
             }
+
         }
         return prod;
     }
@@ -112,5 +116,7 @@ public class main {
         }
         return result;
     }
+
+
 }
 
