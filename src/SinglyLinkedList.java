@@ -54,13 +54,10 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E> {
     public E get(int i) throws IndexOutOfBoundsException {
         //If empty, i > size of linked list
         if (isEmpty() || i > size()){ return null; }
-
         Node<E> curr = head;
-        Node<E> prev = null;
 
         //Move i nodes to get the correct data
         for (int x = 0; x < i; x++){
-            prev = curr;
             curr = curr.next;
         }
         return curr.data;
@@ -341,5 +338,6 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E> {
         System.out.println(ll.first()); //3
         System.out.println(ll.last()); //4
         System.out.println(ll.getLast());
+        System.out.println(ll.get(0));
     }
 }
