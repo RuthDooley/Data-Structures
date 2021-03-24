@@ -339,5 +339,19 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E> {
         System.out.println(ll.last()); //4
         System.out.println(ll.getLast());
         System.out.println(ll.get(0));
+
+        //Test: Sample Test
+        SinglyLinkedList<String> sll = new SinglyLinkedList<String>();
+        String[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+        for (String s : alphabet) {
+            sll.addFirst(s);
+            sll.addLast(s);
+        }
+        System.out.println(sll.toString());
+
+        for (String s : sll) {
+            System.out.print(s + ", ");
+        }
     }
 }
