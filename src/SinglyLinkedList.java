@@ -129,18 +129,15 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E> {
      * @return last node of the list (or null if empty)
      */
     public Node<E> getLast() {
-        if (head == null){
-            return null;
+        Node lastNode = head;
+        Node next = head.next;
+
+        while (next != null) {
+            lastNode = next;
+            next = next.next;
         }
 
-        Node <E> curr = head;
-        Node <E> prev = null;
-        while (curr.next != null){
-            curr = curr.next;
-            prev = curr;
-        }
-        Node<E> e = prev;
-        return e;
+        return lastNode;
     }
 
     /**
@@ -234,17 +231,36 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E> {
         }
     }
 
-    @SuppressWarnings({"unchecked"})
     public boolean equals(Object o) {
-        // TODO
-        return false;   // if we reach this, everything matched successfully
+        if (o == null) return false;
+        if (getClass() != o.getClass()) return false;
+        SinglyLinkedList ll2 = (SinglyLinkedList) o;
+        if (size != ll2.size) return false;
+        Node first = head;
+        Node second = ll2.head;
+        while (first != null) {
+            if (!first.getData().equals(second.getData( ))) return false;
+            first = first.getNext();
+            second = second.getNext();
+        }
+        return true;
     }
 
-    @SuppressWarnings({"unchecked"})
-    public SinglyLinkedList<E> clone() throws CloneNotSupportedException {
-        // TODO
-        return null;
-    }
+    public SinglyLinkedList<E> clone( ) throws CloneNotSupportedException {
+        SinglyLinkedList<E> ll2 = (SinglyLinkedList<E>) super.clone( );
+        if (size > 0) {
+            ll2.head = new Node<>(head.getData(), null);
+            Node<E> first = head.getNext();
+            Node<E> tail = ll2.head;
+            while (first != null) {
+                Node<E> curr = new Node<>(first.getData(), null);
+                tail.setNext(curr);
+                tail = curr;
+                first = first.getNext( );
+                }
+            }
+        return ll2;
+        }
 
 
     /**
@@ -287,7 +303,7 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E> {
         return new SinglyLinkedListIterator<E>();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         SinglyLinkedList<Integer> ll = new SinglyLinkedList<Integer>();
 
         //Test: isEmpty Function
@@ -337,8 +353,21 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E> {
         //Test: Check first and last methods and getLast
         System.out.println(ll.first()); //3
         System.out.println(ll.last()); //4
-        System.out.println(ll.getLast());
+        System.out.println(ll.getLast().getData());
         System.out.println(ll.get(0));
+
+        //Test: Clone the linked list
+        SinglyLinkedList<Integer> newll = new SinglyLinkedList<Integer>();
+        newll = ll.clone();
+        System.out.println(ll.toString()); //3, 4
+        System.out.println(newll.toString()); //Should be the same
+
+        //Test: Check if linked list is equal
+        if (ll.equals(newll)) System.out.println("True");
+        else System.out.println("False");
+        SinglyLinkedList<Integer> wrongll = new SinglyLinkedList<Integer>();
+        if (ll.equals(wrongll)) System.out.println("True");
+        else System.out.println("False");
 
         //Test: Sample Test
         SinglyLinkedList<String> sll = new SinglyLinkedList<String>();
