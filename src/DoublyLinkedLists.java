@@ -57,20 +57,18 @@ class DoublyLinkedList<E> implements List<E> {
 
     @Override
     public E get(int i) throws IndexOutOfBoundsException {
-        if(i < (size()-1/2)) {
-            Node<E> curr = header.getNext();
-            for(int x = 0; x < i; x++) {
-                curr = curr.getNext();
-            }
-            return curr.data;
-        } else {
-            Node<E> curr = trailer.getPrev();
-            for(int k=size()-1;k>i;k--){
-                curr = curr.getPrev();
+        Node<E> currentNode = header;
+        if (i < size && i >= 0) {
+            for (int j = 0; j < size; j++) {
+                if (j == i) {
+                    return currentNode.getData();
+                } else {
+                    currentNode = currentNode.getNext();
+                }
             }
 
-            return curr.data;
-        }
+        } else { currentNode = null; }
+        return currentNode.getData();
     }
 
     @Override
@@ -85,16 +83,26 @@ class DoublyLinkedList<E> implements List<E> {
 
     @Override
     public void add(int i, E e) throws IndexOutOfBoundsException {
-        Node<E> curr = header.getNext();
-        Node<E> prev = null;
-
-        for(int x = 0;x < i; x++) {
-            prev = curr;
-            curr = curr.next;
+        Node<E> current = header;
+        if (i >= 0 && i <= size || size == 0) {
+            if (size == 0) {
+                header = new Node<E>(e, null, null);
+                size++;
+            } else if (i == 0) {
+                this.addFirst(e);
+            } else {
+                for (int j = 0; j < size; j++) {
+                    if (j == i - 1) {
+                        current.setNext(new Node<E>(e, current.next, current));
+                        size++;
+                    } else {
+                        current = current.next;
+                    }
+                }
+            }
+        } else {
+            throw new IllegalArgumentException("Cannot add()");
         }
-
-        //Function below
-        addBetween(e, prev, curr);
     }
 
     @Override
@@ -115,7 +123,22 @@ class DoublyLinkedList<E> implements List<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new ListIterator();
+    }
+
+    private class ListIterator implements Iterator<E> {
+        Node<E> curr;
+        public ListIterator() { curr = header.getNext(); }
+
+        @Override
+        public boolean hasNext() { return curr != trailer; }
+
+        @Override
+        public E next() {
+            E res = (E) curr.getData();
+            curr = curr.getNext();
+            return res;
+        }
     }
 
     /**
@@ -123,7 +146,8 @@ class DoublyLinkedList<E> implements List<E> {
      * @return element at the front of the list (or null if empty)
      */
     public E first() {
-        return header.getNext().getData();
+        if (isEmpty()) return null;
+        return header.getData();
     }
 
     /**
@@ -131,6 +155,7 @@ class DoublyLinkedList<E> implements List<E> {
      * @return element at the end of the list (or null if empty)
      */
     public E last() {
+        if (isEmpty()) return null;
         return trailer.getPrev().getData();
     }
 
@@ -156,10 +181,8 @@ class DoublyLinkedList<E> implements List<E> {
      * @return the removed element (or null if empty)
      */
     public E removeFirst() {
-        if(size == 0)
-            return null;
-        else
-            return remove(0);
+        if(size == 0) return null;
+        else return remove(0);
     }
 
     /**
@@ -215,32 +238,21 @@ class DoublyLinkedList<E> implements List<E> {
      * This exists for debugging purposes only.
      */
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        Node<E> currentNode = header;
+        StringBuilder newString = new StringBuilder();
+        newString.append("[");
+        for (int i = 0; i < size; i++) {
+            if (i == 0) newString.append(currentNode.getData() + ", ");
+            else newString.append(currentNode.getData()  + ", ");
+            currentNode = currentNode.next;
 
-        Node<E> iter = header.getNext();
-        while (iter.getNext() != null) {
-            sb.append(iter.getData());
-            sb.append(", ");
-            iter = iter.getNext();
         }
-
-        sb.replace(sb.length()-2, sb.length(), "");
-        sb.append("]");
-
-        return sb.toString();
+        newString.delete(newString.lastIndexOf(", "),newString.lastIndexOf(", ") + 2);
+        newString.append("]");
+        return newString.toString();
     }
 
     public static void main(String [] args) {
-        //Test: Sample Check
-        DoublyLinkedList<String> dll = new DoublyLinkedList<String>();
-        String[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-        for (String s : alphabet) {
-            dll.addFirst(s);
-            dll.addLast(s);
-        }
-        System.out.println(dll.toString());
-
         DoublyLinkedList<Integer> ll = new DoublyLinkedList<>();
 
         //Test: size and isEmpty Function
@@ -250,9 +262,39 @@ class DoublyLinkedList<E> implements List<E> {
 
         //Test: add function
         ll.add(0, 0);
-        ll.add(1, 2);
         ll.add(1, 1);
+        ll.add(2, 2);
         System.out.println(ll.toString()); //0, 1, 2
-        ;
+
+        //Test: get function
+        System.out.println(ll.get(1)); //1
+        System.out.println(ll.get(2)); //2
+
+        //Test: set function
+        ll.set(0, 2);
+        ll.set(2, 0);
+        System.out.println(ll.toString()); //2, 1, 0
+
+        //Test: remove function
+        ll.remove(2);
+        System.out.println(ll.toString()); //2, 1
+
+        //Test: addFirst and addLast functions removeFirst removeLast
+        ll.addFirst(2);
+        ll.addLast(1);
+        System.out.println(ll.toString()); //2, 2, 1, 1
+        ll.removeFirst();
+        ll.removeLast();
+        System.out.println(ll.toString()); //2, 1
+
+        //Test: Sample Check
+        DoublyLinkedList<String> dll = new DoublyLinkedList<String>();
+        String[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        for (String s : alphabet) {
+            dll.addFirst(s);
+            dll.addLast(s);
+        }
+        System.out.println(dll.toString());
+
     }
 } //----------- end of DoublyLinkedList class -----------
