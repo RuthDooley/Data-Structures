@@ -191,11 +191,11 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
 
     public static < T > String toBinaryTreeString(PriorityQueue<T> pq) {
         LinkedBinaryTree<T> bt = new LinkedBinaryTree<>();
+        ArrayList<T> arrayList = new ArrayList<>(pq);
         //
-		bt.createLevelOrder(new ArrayList<T>(pq));
+		bt.createLevelOrder(arrayList);
 		BinaryTreePrinter< T > btp = new BinaryTreePrinter<>(bt);
 		return btp.print();
-		//
     }
 
 
