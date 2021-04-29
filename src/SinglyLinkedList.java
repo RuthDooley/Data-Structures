@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * A basic singly linked list implementation.
@@ -146,17 +147,8 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E> {
      * @return element at the end of the list (or null if empty)
      */
     public E last() {
-        if (head == null){
-            return null;
-        }
-
-        Node <E> curr = head;
-        Node <E> prev = null;
-        while (curr.next != null){
-            curr = curr.next;
-            prev = curr;
-        }
-        return prev.getData();
+        if (isEmpty()) return null;
+        return get(size()-1);
     }
 
     // update methods
@@ -278,30 +270,22 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E> {
         }
         return  result +="]";
     }
-
-    private class SinglyLinkedListIterator<E> implements Iterator<E> {
-        Node<E> curr;
-
-        public void ListIterator(){
-            curr = (Node<E>) head;
-        }
-
-        @Override
+    public Iterator<E> iterator(){ return new SinglyLinkedListIterator(head);}
+    public class SinglyLinkedListIterator implements Iterator<E> {
+        private Node current;
+        public SinglyLinkedListIterator(Node e){this.current=e;}
         public boolean hasNext() {
-            return curr != null;
+            return current != null;
         }
-
-        @Override
+        
         public E next() {
-            E next = (E) curr.getData();
-            curr = curr.getNext();
-            return next;
+            if (!hasNext()) throw new NoSuchElementException();
+            E tempNode = (E) current.getData();
+            current = current.getNext();
+            return tempNode;
         }
     }
 
-    public Iterator<E> iterator() {
-        return new SinglyLinkedListIterator<E>();
-    }
 
     public static void main(String[] args) throws CloneNotSupportedException {
         SinglyLinkedList<Integer> ll = new SinglyLinkedList<Integer>();

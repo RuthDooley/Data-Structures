@@ -7,8 +7,6 @@ import java.util.function.Consumer;
  */
 
 public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
-
-    // ---------------- nested BalanceableBinaryTree class ----------------
     /**
      * A specialized version of the LinkedBinaryTree class with additional mutators
      * to support binary search tree operations, and a specialized node class that
