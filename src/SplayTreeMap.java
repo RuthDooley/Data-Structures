@@ -67,7 +67,6 @@ public class SplayTreeMap<K, V> extends TreeMap<K, V> {
     //@Override
     protected void rebalanceDelete(Position<Entry<K, V>> p) {
         if (!isRoot(p)) splay(parent(p));
-
     }
 
     public String toString() {
