@@ -11,23 +11,17 @@ public class ChainHashMap<K, V> extends AbstractHashMap<K, V> {
     /**
      * Creates a hash table with capacity 11 and prime factor 109345121.
      */
-    public ChainHashMap() {
-        super();
-    }
+    public ChainHashMap() { super();}
 
     /**
      * Creates a hash table with given capacity and prime factor 109345121.
      */
-    public ChainHashMap(int cap) {
-        super(cap);
-    }
+    public ChainHashMap(int cap) { super(cap); }
 
     /**
      * Creates a hash table with the given capacity and prime factor.
      */
-    public ChainHashMap(int cap, int p) {
-        super(cap, p);
-    }
+    public ChainHashMap(int cap, int p) { super(cap, p); }
 
     public static void main(String[] args) {
         //HashMap<Integer, String> m = new HashMap<Integer, String>();
@@ -57,7 +51,7 @@ public class ChainHashMap<K, V> extends AbstractHashMap<K, V> {
     @Override
     @SuppressWarnings({"unchecked"})
     protected void createTable() {
-        // TODO
+        table = (UnsortedTableMap<K,V>[ ]) new UnsortedTableMap[capacity];
     }
 
     /**
@@ -70,8 +64,9 @@ public class ChainHashMap<K, V> extends AbstractHashMap<K, V> {
      */
     @Override
     protected V bucketGet(int h, K k) {
-        // TODO
-        return  null;
+        UnsortedTableMap<K,V> bGet = table[h];
+        if(bGet == null) return null;
+        return bGet.get(k);
     }
 
     /**
@@ -85,8 +80,12 @@ public class ChainHashMap<K, V> extends AbstractHashMap<K, V> {
      */
     @Override
     protected V bucketPut(int h, K k, V v) {
-        // TODO
-        return null;
+        UnsortedTableMap<K,V> bPut = table[h];
+        if(bPut == null) bPut = table[h] = new UnsortedTableMap<>();
+        int prevSize = bPut.size();
+        V ret = bPut.put(k,v);
+        n -= (prevSize-bPut.size());
+        return ret;
     }
 
     /**
@@ -99,8 +98,12 @@ public class ChainHashMap<K, V> extends AbstractHashMap<K, V> {
      */
     @Override
     protected V bucketRemove(int h, K k) {
-        // TODO
-        return  null;
+        UnsortedTableMap<K,V> bucket = table[h];
+        if(bucket == null) return null;
+        int prevSize = bucket.size();
+        V ret = bucket.remove(k);
+        n -= (prevSize-bucket.size());
+        return ret;
     }
 
     /**
@@ -110,13 +113,16 @@ public class ChainHashMap<K, V> extends AbstractHashMap<K, V> {
      */
     @Override
     public Iterable<Entry<K, V>> entrySet() {
-		/*
-		for each element in (UnsortedTableMap []) table
-			for each element in bucket:
-				print element
-		*/
-        // TODO
-        return null;
+        ArrayList<Entry<K,V>> res = new ArrayList<Entry<K,V>>();
+        for (int i = 0; i < capacity; i++) {
+            UnsortedTableMap<K, V> bucket = table[i];
+            if(bucket != null) {
+                for(Entry<K,V> entry: bucket.entrySet()) {
+                    res.add(entry);
+                }
+            }
+        }
+        return res;
     }
 
     public String toString() {
