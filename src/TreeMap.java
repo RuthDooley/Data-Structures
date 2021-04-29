@@ -52,7 +52,6 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
         /** Relinks a parent node with its oriented child node. */
         private void relink(Node<Entry<K, V>> parent, Node<Entry<K, V>> child, boolean makeLeftChild) {
 // TODO
-            return null;
         }
 
         /**
@@ -69,10 +68,10 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
          *
          * Caller should ensure that p is not the root.
          */
-        public void rotate(Position<Entry<K, V>> p) {
-// TODO
-            return null;
-        }
+//        public void rotate(Position<Entry<K, V>> p) {
+//// TODO
+//            return null;
+//        }
 
         /**
          *

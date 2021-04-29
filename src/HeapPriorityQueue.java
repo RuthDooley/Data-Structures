@@ -36,33 +36,31 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
      * @param values an array of the initial values for the priority queue
      */
     public HeapPriorityQueue(K[] keys, V[] values) {
-        // TODO
+        super();
+        for(int i = 0;i < Math.min(keys.length, values.length); i++)
+            heap.add(new PQEntry<> (keys[i], values[i]));
+        heapify();
     }
 
     // protected utilities
     protected int parent(int j) {
-        // TODO
-        return -1;
+        return (j - 1) / 2;
     }
 
     protected int left(int j) {
-        // TODO
-        return -1;
+        return (2 * j + 1);
     }
 
     protected int right(int j) {
-        // TODO
-        return -1;
+        return (2 * j + 2);
     }
 
     protected boolean hasLeft(int j) {
-        // TODO
-        return false;
+        return left(j) < heap.size();
     }
 
     protected boolean hasRight(int j) {
-        // TODO
-        return false;
+        return right(j) < heap.size();
     }
 
     /** Exchanges the entries at indices i and j of the array list. */
@@ -70,7 +68,6 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
         Entry<K, V> temp = heap.get(i);
         heap.set(i, heap.get(j));
         heap.set(j, temp);
-        return;
     }
 
     /**
@@ -78,20 +75,37 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
      * property.
      */
     protected void upheap(int j) {
-        // TODO
+        while(j > 0) {
+            int p = parent(j);
+            if(compare(heap.get(j), heap.get(j)) >= 0) break;
+            swap(j,p);
+            j = p;
+        }
     }
 
     /**
      * Moves the entry at index j lower, if necessary, to restore the heap property.
      */
     protected void downheap(int j) {
-        // TODO
-
+        while(hasLeft(j)) {
+            int leftIndex = left(j);
+            int minChild = leftIndex;
+            if(hasRight(j)) {
+                int rightIndex = right(j);
+                if(compare(heap.get(leftIndex),heap.get(rightIndex)) > 0) minChild = rightIndex;
+            }
+            if(compare(heap.get(minChild),heap.get(j)) >= 0) break;
+            swap(j,minChild);
+            j = minChild;
+        }
     }
 
     /** Performs a bottom-up construction of the heap in linear time. */
     protected void heapify() {
-        // TODO
+        int start = parent(size() -1);
+        for(int j = start;j >= 0;j--) {
+            downheap(j);
+        }
     }
 
     // public methods
@@ -102,10 +116,7 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
      * @return number of items
      */
     @Override
-    public int size() {
-        // TODO
-        return -1;
-    }
+    public int size() { return heap.size(); }
 
     /**
      * Returns (but does not remove) an entry with minimal key.
@@ -114,7 +125,13 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
      */
     @Override
     public Entry<K, V> min() {
-        return heap.get(0);
+        Entry<K,V> small = heap.get(0);
+        for(Entry<K, V> e : heap) {
+            if(compare(small, e) > 0) {
+                small = e;
+            }
+        }
+        return small;
     }
 
     /**
@@ -127,8 +144,10 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
      */
     @Override
     public Entry<K, V> insert(K key, V value) throws IllegalArgumentException {
-        // TODO
-        return null;
+        Entry<K, V> n = new PQEntry<K, V>(key, value);
+        heap.add(n);
+        upheap(heap.size() - 1);
+        return n;
     }
 
     /**
@@ -138,8 +157,12 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
      */
     @Override
     public Entry<K, V> removeMin() {
-        // TODO
-        return null;
+        if (heap.isEmpty()) return null;
+        Entry<K,V> min = heap.get(0);
+        swap(0, heap.size());
+        heap.remove(heap.size() - 1);
+        downheap(0);
+        return min;
     }
 
     public String toString() {
@@ -190,6 +213,4 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
         pq.add(34);
         System.out.println(toBinaryTreeString(pq));
     }
-
-
 }

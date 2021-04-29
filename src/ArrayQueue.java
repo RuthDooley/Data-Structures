@@ -46,6 +46,4 @@ public class ArrayQueue<E> implements Queue<E> {
         front = front + 1;
         return deq;
     }
-    }
-
 }
