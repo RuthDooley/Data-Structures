@@ -102,7 +102,6 @@ public class AVLTreeMap<K, V> extends TreeMap<K, V> {
     /**
      * Overrides the TreeMap rebalancing hook that is called after an insertion.
      */
-    @Override
     protected void rebalanceInsert(Position<Entry<K, V>> p) {
         rebalance(p);
     }
@@ -110,7 +109,6 @@ public class AVLTreeMap<K, V> extends TreeMap<K, V> {
     /**
      * Overrides the TreeMap rebalancing hook that is called after a deletion.
      */
-    @Override
     protected void rebalanceDelete(Position<Entry<K, V>> p) {
         // TODO
         return;
