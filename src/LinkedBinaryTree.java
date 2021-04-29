@@ -5,72 +5,6 @@ import java.util.ArrayList;
  * structure.
  */
 public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
-    protected static class Node<E> implements Position<E> {
-        private E element;
-
-        private Node<E> parent;
-
-        private Node<E> left;
-
-        private Node<E> right;
-
-        public Node(E e, Node<E> above, Node<E> leftChild, Node<E> rightChild)
-        {
-            this.element = e;
-            this.parent = above;
-            this.left = leftChild;
-            this.right = rightChild;
-        }
-
-        public void setElement(E e)
-        {
-            element = e;
-        }
-
-        public void setParent(Node<E> p)
-        {
-            parent = p;
-        }
-
-        public void setLeft(Node<E> l)
-        {
-            left = l;
-        }
-
-        public void setRight(Node<E> r)
-        {
-            right = r;
-        }
-
-        public E getElement() throws IllegalStateException
-        {
-            return this.element;
-        }
-
-        public Node<E> getParent()
-        {
-            return this.parent;
-        }
-
-        public Node<E> getLeft()
-        {
-            return this.left;
-        }
-
-        public Node<E> getRight()
-        {
-            return this.right;
-        }
-
-        public String toString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.append(element);
-            return sb.toString();
-        }
-
-    }
-
     static java.util.Random rnd = new java.util.Random();
     /**
      * The root of the binary tree
@@ -92,21 +26,17 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         LinkedBinaryTree<Integer> bt = new LinkedBinaryTree<Integer>();
 
 
-        // Direct construction of Tree Position<Integer> root = bt.addRoot(12);
-//        Position<Integer> p1 = bt.addLeft(root, 25); Position<Integer> p2 =
-//                bt.addRight(root, 31);
+        //Direct construction of 
+        Position<Integer> root = bt.addRoot(12);
+        Position<Integer> p1 = bt.addLeft(root, 25); Position<Integer> p2 = bt.addRight(root, 31);
 
-//        Position<Integer> p3 = bt.addLeft(p1, 58); bt.addRight(p1, 36);
-//
-//        Position<Integer> p5 = bt.addLeft(p2, 42); bt.addRight(p2, 90);
+        Position<Integer> p3 = bt.addLeft(p1, 58); bt.addRight(p1, 36);
 
-//        Position<Integer> p4 = bt.addLeft(p3, 62); bt.addRight(p3, 75);
+        Position<Integer> p5 = bt.addLeft(p2, 42); bt.addRight(p2, 90);
 
-
-        // Can you write a level order constructor?
-        // Level order construction
-        // Integer[] arr = {12, 25, 31, 58, 36, 42, 90, 62, 75};
-        // bt.createLevelOrder(arr);
+        Position<Integer> p4 = bt.addLeft(p3, 62); bt.addRight(p3, 75);
+        Integer[] arr = {12, 25, 31, 58, 36, 42, 90, 62, 75};
+        bt.createLevelOrder(arr);
 
         System.out.println("bt inorder: " + bt.size() + " " + bt.inorder());
         System.out.println("bt preorder: " + bt.size() + " " + bt.preorder());
@@ -320,7 +250,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         return temp;
     }
 
-    public String toString() { //String buidler approach
+    public String toString() { //String builder approach
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         int counter=0;
@@ -334,15 +264,6 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         sb.append("]");
         return sb.toString();
     }
-
-//    public void createLevelOrder(ArrayList<E> l) {
-//        root = createLevelOrderHelper(arr , root, 0);
-//    }
-//
-//    private Node<E> createLevelOrderHelper(ArrayList<E> l, Node<E> p, int i) {
-//        root = createLevelOrderHelper(arr , root, 0);
-//
-//    }
 
     public void createLevelOrder(E[] arr) {
         root = createLevelOrderHelper(arr, root, 0);
@@ -366,16 +287,53 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
      */
     protected static class Node<E> implements Position<E> {
         private E element;
-        private Node<E> left, right, parent;
-
-
-        public Node(E e, Node<E> p, Node<E> l, Node<E> r) {
-            // TODO
+        private Node<E> parent;
+        private Node<E> left;
+        private Node<E> right;
+        public Node(E e, Node<E> above, Node<E> leftChild, Node<E> rightChild) {
+            this.element = e;
+            this.parent = above;
+            this.left = leftChild;
+            this.right = rightChild;
         }
 
-        @Override
+        public void setElement(E e) {
+            element = e;
+        }
+
+        public void setParent(Node<E> p) {
+            parent = p;
+        }
+
+        public void setLeft(Node<E> l) {
+            left = l;
+        }
+
+        public void setRight(Node<E> r) {
+            right = r;
+        }
+
         public E getElement() throws IllegalStateException {
-            return null;
+            return this.element;
+        }
+
+        public Node<E> getParent() {
+            return this.parent;
+        }
+
+        public Node<E> getLeft() {
+            return this.left;
+        }
+
+        public Node<E> getRight() {
+            return this.right;
+        }
+
+        public String toString(){
+            StringBuilder sb = new StringBuilder();
+            sb.append(element);
+            return sb.toString();
         }
     }
 }
+
