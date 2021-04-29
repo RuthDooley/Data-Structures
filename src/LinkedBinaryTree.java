@@ -26,7 +26,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         LinkedBinaryTree<Integer> bt = new LinkedBinaryTree<Integer>();
 
 
-        //Direct construction of 
+        //Direct construction of
         Position<Integer> root = bt.addRoot(12);
         Position<Integer> p1 = bt.addLeft(root, 25); Position<Integer> p2 = bt.addRight(root, 31);
 
