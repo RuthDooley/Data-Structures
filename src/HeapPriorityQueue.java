@@ -188,29 +188,8 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
             }
         }
     }
-
-    public static < T > String toBinaryTreeString(PriorityQueue<T> pq) {
-        LinkedBinaryTree<T> bt = new LinkedBinaryTree<>();
-        ArrayList<T> arrayList = new ArrayList<>(pq);
-        //
-		bt.createLevelOrder(arrayList);
-		BinaryTreePrinter< T > btp = new BinaryTreePrinter<>(bt);
-		return btp.print();
-    }
+    public static void main(String [] args) {
 
 
-    public static void main_jdk(String [] args) {
-        //HeapPriorityQueue<Integer, Integer> pq = new HeapPriorityQueue<>();
-        PriorityQueue<Integer> pq = new PriorityQueue<>(new MaxComparator());
-        //Integer [] rands = new Integer[]{44,17,88,8,32,65,97,28,54,82,93,21,29,76,68,80};
-        Integer[] rands = new Integer[] {35,26,15,24,33,4,12,1,23,21,2,5};
-
-        for(Integer i : rands) {
-            pq.add(i);
-            System.out.println(toBinaryTreeString(pq));
-        }
-
-        pq.add(34);
-        System.out.println(toBinaryTreeString(pq));
     }
 }

@@ -69,7 +69,7 @@ public class AVLTreeMap<K, V> extends TreeMap<K, V> {
      * Recomputes the height of the given position based on its children's heights.
      */
     protected void recomputeHeight(Position<Entry<K, V>> p) {
-        int auxleft=height(left(p)), auxright=height(right(p));
+        int auxleft = height(left(p)), auxright = height(right(p));
         tree.setAux(p, auxleft>auxright? auxleft+1 : auxright+1);
     }
 
