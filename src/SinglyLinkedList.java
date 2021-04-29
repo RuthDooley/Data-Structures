@@ -277,7 +277,7 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E> {
         public boolean hasNext() {
             return current != null;
         }
-        
+
         public E next() {
             if (!hasNext()) throw new NoSuchElementException();
             E tempNode = (E) current.getData();
