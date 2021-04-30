@@ -6,43 +6,43 @@ class CircularQueueTest {
 
     @Test
     void testSize() {
-        LinkedCircularQueue<Integer> s = new LinkedCircularQueue<>();
+        LinkedCircularQueue<Integer> cl = new LinkedCircularQueue<>();
         for(int i = 0; i < 10; ++i)
-            s.enqueue(i);
-        assertEquals(10, s.size());
+            cl.enqueue(i);
+        assertEquals(10, cl.size());
     }
 
     @Test
     void testIsEmpty() {
-        LinkedCircularQueue<Integer> s = new LinkedCircularQueue<>();
+        LinkedCircularQueue<Integer> cl = new LinkedCircularQueue<>();
         for(int i = 0; i < 10; ++i)
-            s.enqueue(i);
+            cl.enqueue(i);
         for(int i = 0; i < 10; ++i)
-            s.dequeue();
-        assertEquals(true, s.isEmpty());
+            cl.dequeue();
+        assertEquals(true, cl.isEmpty());
     }
 
     @Test
     void testEnqueue() {
-        LinkedCircularQueue<Integer> s = new LinkedCircularQueue<>();
+        LinkedCircularQueue<Integer> cl = new LinkedCircularQueue<>();
         for(int i = 0; i < 5; ++i)
-            s.enqueue(i);
-        assertEquals("[0, 1, 2, 3, 4]", s.toString());
+            cl.enqueue(i);
+        assertEquals("[0, 1, 2, 3, 4]", cl.toString());
     }
 
     @Test
     void testFirst() {
-        LinkedCircularQueue<Integer> s = new LinkedCircularQueue<>();
-        s.enqueue(7);
-        assertEquals(7, s.first());
+        LinkedCircularQueue<Integer> cl = new LinkedCircularQueue<>();
+        cl.enqueue(7);
+        assertEquals(7, cl.first());
     }
 
     @Test
     void testDequeue() {
-        LinkedCircularQueue<Integer> s = new LinkedCircularQueue<>();
+        LinkedCircularQueue<Integer> cl = new LinkedCircularQueue<>();
         for(int i = 0; i < 10; ++i)
-            s.enqueue(i);
-        assertEquals(0, s.dequeue());
-        assertEquals(9, s.size());
+            cl.enqueue(i);
+        assertEquals(0, cl.dequeue());
+        assertEquals(9, cl.size());
     }
 }

@@ -2,7 +2,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class ArrayQueueTest {
+class qArrayQueueTest {
 
     @Test
     void testSize() {
