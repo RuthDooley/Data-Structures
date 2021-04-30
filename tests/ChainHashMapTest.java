@@ -1,10 +1,11 @@
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 class ChainHashMapTest {
+
     @Test
     void testSize() {
         ChainHashMap<Integer, String> map = new ChainHashMap<Integer, String>();

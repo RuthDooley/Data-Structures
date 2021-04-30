@@ -135,7 +135,7 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
     }
 
     /**
-     * Inserts a key-value pair and return the entry created.
+     * hes a key-value pair and return the entry created.
      *
      * @param key   the key of the new entry
      * @param value the associated value of the new entry
