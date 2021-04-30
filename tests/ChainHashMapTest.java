@@ -18,30 +18,6 @@ class ChainHashMapTest {
     }
 
     @Test
-    void testGet() {
-        ChainHashMap<String, Integer> map = new ChainHashMap<String, Integer>();
-
-        int n = 10;
-        for(int i = 0; i < n; ++i) {
-            map.put(Integer.toString(i), i);
-        }
-        assertEquals(5, map.get("5"));
-        assertEquals(2, map.get("2"));
-    }
-
-    @Test
-    void testRemove() {
-        ChainHashMap<String, Integer> map = new ChainHashMap<String, Integer>();
-
-        int n = 10;
-        for(int i = 0; i < n; ++i) {
-            map.put(Integer.toString(i), i);
-        }
-        assertEquals(5, map.remove("5"));
-        assertEquals(n-1, map.size());
-    }
-
-    @Test
     void testPut() {
         ChainHashMap<String, Integer> map = new ChainHashMap<String, Integer>();
 
