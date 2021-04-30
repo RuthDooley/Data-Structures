@@ -21,45 +21,50 @@ class LinkedDequeTest {
     }
 
     @Test
-    void testEnqueueFirst() {
+    void testAddFirst() {
         LinkedDeque<Integer> ld = new LinkedDeque<>();
-        for(int i = 0; i < 10; ++i)
-            ld.addLast(i);
-        assertEquals("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]", ld.toString());
+        for(int i = 0; i < 3; ++i)
+            ld.addFirst(i);
+        assertEquals("[2, 1, 0]", ld.toString());
     }
 
     @Test
     void testFirst() {
         LinkedDeque<Integer> ld = new LinkedDeque<>();
-        for(int i = 0; i < 10; ++i)
-            ld.addLast(i);
-        assertEquals(0, ld.first());
-    }
-
-    @Test
-    void testDequeueFirst() {
-        LinkedDeque<Integer> ld = new LinkedDeque<>();
-        for(int i = 0; i < 10; ++i)
-            ld.addLast(i);
-        assertEquals(0, ld.removeFirst());
-        assertEquals(9, ld.size());
-    }
-
-    @Test
-    void testDequeueLast() {
-        LinkedDeque<Integer> ld = new LinkedDeque<>();
-        for(int i = 0; i < 10; ++i)
-            ld.addLast(i);
-        assertEquals(9, ld.removeLast());
-        assertEquals(9, ld.size());
-    }
-
-    @Test
-    void testEnqueueLast() {
-        LinkedDeque<Integer> ld = new LinkedDeque<>();
-        for(int i = 0; i < 10; ++i)
+        for(int i = 0; i < 3; ++i)
             ld.addFirst(i);
-        assertEquals(9, ld.removeFirst());
-        assertEquals(9, ld.size());
+        assertEquals(2, ld.first());
     }
+
+    @Test
+    void testRemoveFirst() {
+        LinkedDeque<Integer> ld = new LinkedDeque<>();
+        for(int i = 0; i < 3; ++i)
+            ld.addFirst(i);
+        assertEquals(2, ld.removeFirst());
+    }
+
+    @Test
+    void testAddLast() {
+        LinkedDeque<Integer> ld = new LinkedDeque<>();
+        for(int i = 0; i < 3; ++i)
+            ld.addLast(i);
+        assertEquals("[0, 1, 2]", ld.toString());
+    }
+
+    @Test
+    void testLast() {
+        LinkedDeque<Integer> ld = new LinkedDeque<>();
+        for(int i = 0; i < 5; ++i)
+            ld.addLast(i);
+        assertEquals(4, ld.last());
+    }
+
+    @Test
+    void testRemoveLast() {
+        LinkedDeque<Integer> ld = new LinkedDeque<>();
+        for(int i = 0; i < 5; ++i)
+            ld.addLast(i);
+        assertEquals(4, ld.removeLast());
+    }l
 }

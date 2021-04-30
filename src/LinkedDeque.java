@@ -36,7 +36,7 @@ public class LinkedDeque<E> implements Deque<E> {
 
     @Override
     public void addLast(E e) {
-        dll.addFirst(e);
+        dll.addLast(e);
     }
 
     @Override
