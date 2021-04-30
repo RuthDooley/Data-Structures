@@ -13,7 +13,6 @@ WK11 | Binary Search Trees | [TreeMap](https://github.com/ucd2016comp20010/data-
 WK12 | Binary Search Trees | [AVLTreeMap](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/src/AVLTreeMap.java) | [AVLTreeMapTest](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/tests/AVLTreeMapTest.java)
 WK13 | Binary Search Trees | [SplayTreeMap](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/src/SplayTreeMap.java) | [SplayTreeMapTest](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/tests/SplayTreeMapTest.java)
 
-The following are the assignments that I have completed during the course of this semester 
-Assignments 
+The following are the assignments that I have completed during the course of this semester:
 * [Assignment I](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/tree/main/assignment1)
 * [Assignment II](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/tree/main/assignment2)
