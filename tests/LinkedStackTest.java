@@ -35,7 +35,7 @@ class LinkedStackTest {
         for(int i = 0; i < 5; ++i)
             s.push(i);
         assertEquals(0, s.top());
-    }l
+    }
 
     @Test
     void testPop() {
