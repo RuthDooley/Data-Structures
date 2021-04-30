@@ -1,3 +1,14 @@
+/**
+ * A map with additional support for keys from a total ordering.
+ *
+ * The total ordering is the natural ordering of keys, by default, or it can be
+ * defined by providing an optional Comparator.
+ *
+ * All iterations will be in sorted order relative to the keys, and additional
+ * methods provide for non-exact searches. This interface is a simple variant
+ * that blends features of java.util.SortedMap and java.util.NavigableMap.
+ */
+
 public interface SortedMap<K, V> extends Map<K, V> {
 
     /**
