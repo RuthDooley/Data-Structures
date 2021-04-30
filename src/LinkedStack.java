@@ -36,15 +36,6 @@ public class LinkedStack<E> implements Stack<E> {
         return e;
     }
 
-    //Additional to string method for testing
     @Override
-    public String toString() {
-        String string = "[";
-
-        for(int i = 0; i < size(); i++){
-            string += newLinkedList.get(i);
-            if(i < size() - 1) string += ", ";
-        }
-        return string + "]";
-    }
+    public String toString() { return newLinkedList.toString(); }
 }
