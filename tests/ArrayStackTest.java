@@ -15,10 +15,10 @@ class ArrayStackTest {
         ArrayStack<Integer> as = new ArrayStack<>();
         for(int i = 0; i < 5; ++i)
             as.push(i);
-        assertEquals(false, as.isEmpty());
+        assertFalse(as.isEmpty());
         for(int i = 0; i < 5; ++i)
             as.pop();
-        assertEquals(true, as.isEmpty());
+        assertTrue(as.isEmpty());
     }
 
     @Test
@@ -26,7 +26,7 @@ class ArrayStackTest {
         ArrayStack<Integer> as = new ArrayStack<>();
         for(int i = 0; i < 5; ++i)
             as.push(i);
-        assertEquals("[0, 1, 2, 3, 4]", s.toString());
+        assertEquals("[0, 1, 2, 3, 4]", as.toString());
     }
 
     @Test
