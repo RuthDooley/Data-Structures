@@ -1,4 +1,4 @@
-# Ruth Dooley - Data Structure Repository (COMP20010)
+# Ruth Dooley - Data Structure Repository (COMP20280)
 The following my data structures repository for module COMP20010. The classes to each data structure is linked below as well as its corresponding tests class.
 
 Week No. | Data Structure | Detail | Testing Document
