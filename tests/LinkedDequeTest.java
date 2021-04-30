@@ -66,5 +66,5 @@ class LinkedDequeTest {
         for(int i = 0; i < 5; ++i)
             ld.addLast(i);
         assertEquals(4, ld.removeLast());
-    }l
+    }
 }
