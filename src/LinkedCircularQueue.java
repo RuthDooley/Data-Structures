@@ -1,8 +1,7 @@
 public class LinkedCircularQueue<E> implements Queue<E> {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-
+        //Tested in test directory
     }
 
     CircularlyLinkedList<E> queue;
@@ -35,4 +34,7 @@ public class LinkedCircularQueue<E> implements Queue<E> {
     public E dequeue() {
         return queue.removeFirst();
     }
+
+    @Override
+    public String toString() { return queue.toString(); }
 }

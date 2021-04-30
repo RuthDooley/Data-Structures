@@ -13,8 +13,9 @@ public class ArrayQueue<E> implements Queue<E> {
     public ArrayQueue(int CAPACITY) {
         data = (E[]) new Object[CAPACITY];
     }
-    
+
     public static void main(String[] args) {
+        //Tested in the test directory
     }
 
     @Override
