@@ -66,4 +66,14 @@ public class ArrayStack<E> implements Stack<E> {
         i--;
         return temp;
     }
+
+    public String toString() { //For testing
+        StringBuilder newString = new StringBuilder();
+        newString.append("[");
+        for (int x = 0; x <= i; x++)
+            newString.append(stack[x] + ", ");
+        newString.replace(newString.length() - 2, newString.length(), "");
+        newString.append("]");
+        return newString.toString();
+    }
 }
