@@ -1,9 +1,9 @@
 public class LinkedDeque<E> implements Deque<E> {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-
+        // Tested in testing directory
     }
+
     DoublyLinkedList<E> dll;
     LinkedDeque() {
         dll = new DoublyLinkedList<E>();
@@ -48,4 +48,6 @@ public class LinkedDeque<E> implements Deque<E> {
     public E removeLast() {
         return dll.removeLast();
     }
+
+    public String toString() { return dll.toString(); }
 }
