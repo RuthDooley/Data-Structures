@@ -4,52 +4,52 @@ import org.junit.jupiter.api.Test;
 class ArrayStackTest {
     @Test
     void testSize() {
-        ArrayStack<Integer> s = new ArrayStack<>();
+        ArrayStack<Integer> as = new ArrayStack<>();
         for(int i = 0; i < 5; ++i)
-            s.push(i);
-        assertEquals(5, s.size());
+            as.push(i);
+        assertEquals(5, as.size());
     }
 
     @Test
     void testIsEmpty() {
-        ArrayStack<Integer> s = new ArrayStack<>();
+        ArrayStack<Integer> as = new ArrayStack<>();
         for(int i = 0; i < 5; ++i)
-            s.push(i);
-        assertEquals(false, s.isEmpty());
+            as.push(i);
+        assertEquals(false, as.isEmpty());
         for(int i = 0; i < 5; ++i)
-            s.pop();
-        assertEquals(true, s.isEmpty());
+            as.pop();
+        assertEquals(true, as.isEmpty());
     }
 
     @Test
     void testPush() {
-        ArrayStack<Integer> s = new ArrayStack<>();
+        ArrayStack<Integer> as = new ArrayStack<>();
         for(int i = 0; i < 5; ++i)
-            s.push(i);
+            as.push(i);
         assertEquals("[0, 1, 2, 3, 4]", s.toString());
     }
 
     @Test
     void testTop() {
-        ArrayStack<Integer> s = new ArrayStack<>();
+        ArrayStack<Integer> as = new ArrayStack<>();
         for(int i = 0; i < 5; ++i)
-            s.push(i);
-        assertEquals(4, s.top());
+            as.push(i);
+        assertEquals(4, as.top());
     }
 
     @Test
     void testPop() {
-        ArrayStack<Integer> s = new ArrayStack<>();
+        ArrayStack<Integer> as = new ArrayStack<>();
         for(int i = 0; i < 5; ++i)
-            s.push(i);
-        assertEquals(4, s.pop());
+            as.push(i);
+        assertEquals(4, as.pop());
     }
 
     @Test
     void testToString() {
-        ArrayStack<Integer> s = new ArrayStack<>();
+        ArrayStack<Integer> as = new ArrayStack<>();
         for(int i = 0; i < 5; ++i)
-            s.push(i);
-        assertEquals("[0, 1, 2, 3, 4]s", s.toString());
+            as.push(i);
+        assertEquals("[0, 1, 2, 3, 4]s", as.toString());
     }
 }
