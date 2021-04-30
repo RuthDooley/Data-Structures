@@ -1,3 +1,8 @@
+import java.util.Map;
+
+/**
+ * Interface for the priority queue ADT.
+ */
 public interface PriorityQueue<K,V> {
 
     /**
