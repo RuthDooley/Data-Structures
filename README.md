@@ -5,7 +5,7 @@ Week No. | Data Structure | Detail | Testing Document
 -------- | -------------- | -------|-----------------
 WK1 | WarmUp Practical | []() |
 WK2 | Lists | []() |
-WK3 | * Queues * Stacks * Deques| []() |
+WK3 | Queues<br/>Stacks<br/>Deques| []() |
 WK6 | Priority Queue | []() |
 WK7 | Tree | []() |
 WK10 | HashMap | []() |
