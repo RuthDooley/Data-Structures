@@ -1,49 +1,70 @@
 public class ArrayQueue<E> implements Queue<E> {
-    public E[] data;
-    public int front = 0;
-    public int size = 0;
-    public int length = 100;
+    //default capacity
+    public static final int CAPACITY = 1000;
 
+    private E[] data;
+    private int front = 0;
+    private int rear = 0;
 
     public ArrayQueue() {
-        data=(E[]) new Object[length];  //setting new queue in constructor
+        this(CAPACITY);
     }
 
+    public ArrayQueue(int CAPACITY) {
+        data = (E[]) new Object[CAPACITY];
+    }
+    
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
     public int size() {
-        return size;
+        return ((rear - front) % CAPACITY);
     }
 
     @Override
     public boolean isEmpty() {
-        return (size == 0);
+        if (front == rear) return true;
+        else return false;
     }
 
     @Override
     public void enqueue(E e) {
-        if(size == length) System.out.println("Full");
-        data[size]=e;
-        size++;
+        if (size() >= CAPACITY) throw new RuntimeException("Queue full!");
+        else {
+            rear = ((front + size()) % CAPACITY);
+            data[rear] = e;
+            rear++;
+        }
     }
 
     @Override
     public E first() {
-        if(size < 1) return null;
-        return data[0];
+        return data[front];
     }
 
     @Override
     public E dequeue() {
-        if(isEmpty()) return null;
-        E deq = data[front];
-        data[front] = null;
-        size--;
-        front = front + 1;
-        return deq;
+        if (this.isEmpty()) {
+            System.out.println("ERROR: NOTHING TO DEQUEUE");
+            return null;
+        } else {
+            E e = data[front];
+            front = ((front + 1) % CAPACITY);
+            return e;
+        }
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+
+        for (int i = (front % CAPACITY); i < rear; i++) {
+            sb.append(data[i] + ", ");
+        }
+
+        sb.replace(sb.length() - 2, sb.length(), "");
+        sb.append("]");
+        return sb.toString();
     }
 }
