@@ -3,8 +3,8 @@ The following my data structures repository for module COMP20010. The classes to
 
 Week No. | Data Structure | Detail | Testing Document
 -------- | -------------- | -------|-----------------
-WK1 | WarmUp Practical | []() |
-WK2 | Lists | []() |
+WK1 | WarmUp Practical | [Practical1](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/src/Practical1.java) | NA
+WK2 | Lists | [SinglyLinkedList](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/src/SinglyLinkedList.java)<br/>[DoublyLinkedLists](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/src/DoublyLinkedLists.java)<br/>[CircularlyLinkedList](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/src/CircularlyLinkedList.java) | [SinglyLinkedListTest](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/tests/SinglyLinkedListTest.java)<br/>[DoublyLinkedListTest](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/tests/DoublyLinkedListTest.java)<br/>[CircularlyLinkedListTest](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/tests/CircularlyLinkedListTest.java)<br/>
 WK3 | Queues<br/>Stacks<br/>Deques| []() |
 WK6 | Priority Queue | []() |
 WK7 | Tree | []() |
