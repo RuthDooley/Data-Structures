@@ -1,6 +1,7 @@
-# Ruth Dooley - Data Structure Repository (COMP20280)
-The following my data structures repository for module COMP20010. The classes to each data structure is linked below as well as its corresponding tests class.
+# Introduction 
+The following developement was for the 2nd Year module "Data Structures" (COMP20280). The info related to each data structure is linked below as well as its corresponding tests class.
 
+# Developement 
 Week No. | Data Structure | Detail | Testing Document
 -------- | -------------- | -------|-----------------
 WK2 | Lists | [SinglyLinkedList](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/src/SinglyLinkedList.java)<br/>[DoublyLinkedLists](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/src/DoublyLinkedLists.java)<br/>[CircularlyLinkedList](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/src/CircularlyLinkedList.java) | [SinglyLinkedListTest](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/tests/SinglyLinkedListTest.java)<br/>[DoublyLinkedListTest](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/tests/DoublyLinkedListTest.java)<br/>[CircularlyLinkedListTest](https://github.com/ucd2016comp20010/data-structures-development-RuthDooley/blob/main/tests/CircularlyLinkedListTest.java)<br/>
